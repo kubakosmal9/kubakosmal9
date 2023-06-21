@@ -9,7 +9,6 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
   },
-  "homepage": "kubakosmal9.github.io/kubakosmal9/",
   "dependencies": {
     "sass": "^1.63.4",
     "vue": "^3.3.4",
