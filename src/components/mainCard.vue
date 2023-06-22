@@ -53,7 +53,7 @@
         props: {
             left: {
             type: Number,
-            required: true
+            required: false
             },
             calculatedLeft: {
             type: Number,
@@ -68,7 +68,6 @@
         mounted() {
             setTimeout(() => {
                 this.style = this.left
-                console.log(this.left)
             },20)
 
             setTimeout(() => {
