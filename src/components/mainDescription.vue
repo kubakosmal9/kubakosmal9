@@ -1,5 +1,5 @@
 <template>
-    <div class="cont">
+    <div :style="{ opacity: animationEnd ? '1' : '0' }" class="cont">
         <div class="title">
             Witaj
         </div>
@@ -15,8 +15,18 @@
 
 <script>
 export default{
-    name: 'main-description'
+    name: 'main-description',
+    data() {
+        return {
+            animationEnd: false,
+        }
+    },
 
+    mounted() {
+        setTimeout(() => {
+            this.animationEnd = true
+            },3900)
+    }
 }
 </script>
 
@@ -29,6 +39,7 @@ export default{
     right: 20%;
     display: flex;
     flex-direction: column;
+    transition: opacity 1s ease-in;
     justify-content: center;
     align-items: center ;
     width: 30%;
