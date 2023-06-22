@@ -1,5 +1,5 @@
 <template>
-    <div class="flip-card" @click="flipCard">
+    <div :style="{ left: this.style + 'px' }" :class="{ animation: leftAnimation}" class="flip-card" @click="flipCard">
         <div class="flip-card-inner" :class="{ flipped: isFlipped }">
             <div class="front">
                 <div class="image-cont">
@@ -45,44 +45,71 @@
         name: 'main-card',
         data() {
             return {
-                isFlipped: true // Flag to track the flipped state of the card
+                isFlipped: true, // Flag to track the flipped state of the card
+                leftAnimation: false,
+                style: 10,
             };
             },
+        props: {
+            left: {
+            type: Number,
+            required: true
+            },
+            calculatedLeft: {
+            type: Number,
+            required: false
+            }
+        },
         methods: {
         flipCard() {
             this.isFlipped = !this.isFlipped; // Toggle the flipped state on each click
-        }
+        },
         },
         mounted() {
             setTimeout(() => {
+                this.style = this.left
+                console.log(this.left)
+            },20)
+
+            setTimeout(() => {
                 this.isFlipped = false
             },1000)
-
-        }
-    }
+            setTimeout(() => {
+                this.style = this.calculatedLeft
+                this.leftAnimation = true
+            },1900)
+        },
+        
+}
 
 </script>
 
 <style scoped lang="scss">
 
 .flip-card{
+
     background-color: transparent;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%) !important;
     height: 350px;
+
     width: 680px;
     position: absolute;
-    perspective: 1000px; /* Remove this if you don't want the 3D effect */
-    
+    perspective: 1000px;
+}
+.animation{
+    transition: left 2s ease-in-out ;
 }
 .flip-card-inner{
     position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 1.8s ease-in-out;
-  transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 1.8s ease-in-out;
+    transform-style: preserve-3d;
 }
 .flip-card-inner.flipped {
-  transform: rotateY(180deg);
+  transform: rotateX(180deg);
 }
 .front, .back{
     height: 100%;
@@ -100,7 +127,7 @@
 }
 .back{
     color: white;
-    transform: rotateY(180deg);
+    transform: rotateX(180deg);
     transition: transform 1.8s ease-in-out;
     .site-name{
         z-index: 5;
