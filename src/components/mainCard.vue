@@ -18,7 +18,7 @@
 
                     </div>
                     <div class="bottom-side-cont right">
-                        <p class="text">Kwatery głównej 46C</p>
+                        <p class="text">Praga Południe</p>
                         <p class="text">04-294 Warszawa</p>
                     </div>
                 </div>
