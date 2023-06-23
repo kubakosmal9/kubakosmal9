@@ -68,7 +68,7 @@
         mounted() {
             setTimeout(() => {
                 this.style = this.left
-            },20)
+            },100)
 
             setTimeout(() => {
                 this.isFlipped = false
@@ -91,7 +91,6 @@
     top: 50%;
     transform: translateX(-50%) translateY(-50%) !important;
     height: 350px;
-
     width: 680px;
     position: absolute;
     perspective: 1000px;

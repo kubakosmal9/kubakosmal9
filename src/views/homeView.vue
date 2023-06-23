@@ -16,8 +16,8 @@ export default{
   name: "home-view",
   data() {
     return {
-      left: null,
-      calculatedLeft: null
+      left: 0,
+      calculatedLeft: 0
     };
   },
   mounted() {
