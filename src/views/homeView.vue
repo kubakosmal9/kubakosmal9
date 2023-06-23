@@ -11,12 +11,12 @@ import mainCard from '../components/mainCard.vue';
     <main-card></main-card>
     <main-description class='main-description'></main-description>
   </section>
-  <section class="aboutView" id="about">
+  <!-- <section class="aboutView" id="about">
     <about-view></about-view>
   </section>
   <section class="kontakt" id="kontakt">
     <contack-view></contack-view>
-  </section>
+  </section> -->
 </div>
 
 </template>

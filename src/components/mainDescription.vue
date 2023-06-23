@@ -3,7 +3,7 @@
         <div class="text">
              <span class="title">Witaj</span> na mojej stronie internetowej! Jestem Jakub, początkujący 22-letni informatyk z doświadczeniem w dziale network engineeringu. Moją pasją jest tworzenie stron internetowych. Zapoznaj się z moim CV i historią zawodową. Chętnie podzielę się projektami, które zrealizowałem. Skontaktuj się ze mną, jeśli masz pytania lub zainteresowanie współpracą. Dziękuję za odwiedzenie strony!
         </div>
-        <learn-more-button></learn-more-button> 
+        <!-- <learn-more-button></learn-more-button>  -->
     </div>
 </template>
 
