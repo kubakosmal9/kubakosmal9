@@ -36,13 +36,14 @@ export default{
     font-family:'Open Sans' ;
     flex-direction: column;
     position: absolute;
-    right: 20%;
+    right: 10%;
+    transform: translateX(100%);
     display: flex;
     flex-direction: column;
     transition: opacity 1s ease-in;
     justify-content: center;
     align-items: center ;
-    width: 30%;
+    width: 40%;
     height: 50%;
     text-align: left;
     top: 50%;

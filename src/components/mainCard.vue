@@ -60,7 +60,7 @@
         mounted() {
             var containerWidth = document.querySelector('.home-cont').clientWidth;
             this.left = containerWidth / 2
-            this.calculatedLeft = this.left /2
+            this.calculatedLeft = this.left *0.6
             setTimeout(() => {
                 this.style = this.left
             },100)
