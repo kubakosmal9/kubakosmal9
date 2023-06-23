@@ -21,7 +21,8 @@ export default{
     };
   },
   mounted() {
-    var containerWidth = document.querySelector('.home-cont').offsetWidth;
+    var element = document.querySelector('.home-cont');
+    var containerWidth = element.clientWidth;
     this.left = containerWidth / 2
     this.calculatedLeft = this.left /2
   }
