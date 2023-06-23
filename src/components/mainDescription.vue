@@ -1,18 +1,23 @@
 <template>
     <div :style="{ opacity: animationEnd ? '1' : '0' }" class="cont">
         <div class="text">
-             <span class="title">Witaj</span> na mojej stronie internetowej! Jestem Jakub, początkującym 22-letnim informatykiem z doświadczeniem w dziale network engineeringu. Moją pasją jest tworzenie stron internetowych. Zapoznaj się z moim CV i historią zawodową. Chętnie podzielę się projektami, które zrealizowałem. Skontaktuj się ze mną, jeśli masz pytania lub zainteresowanie współpracą. Dziękuję za odwiedzenie strony!
+             <span class="title">Witaj</span> na mojej stronie internetowej! Jestem Jakub, początkujący 22-letni informatyk z doświadczeniem w dziale network engineeringu. Moją pasją jest tworzenie stron internetowych. Zapoznaj się z moim CV i historią zawodową. Chętnie podzielę się projektami, które zrealizowałem. Skontaktuj się ze mną, jeśli masz pytania lub zainteresowanie współpracą. Dziękuję za odwiedzenie strony!
         </div>
+        <learn-more-button></learn-more-button> 
     </div>
 </template>
 
 <script>
+  import learnMoreButton from '../components/learmMoreButton.vue';
 export default{
     name: 'main-description',
     data() {
         return {
             animationEnd: false,
         }
+    },
+    components: {
+        learnMoreButton
     },
 
     mounted() {
