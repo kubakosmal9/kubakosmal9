@@ -6,10 +6,25 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
       component: homeView
     },
-  ]
+    {
+      path: '/about',
+      redirect: '/#about'
+    },
+    {
+      path: '/kontakt',
+      redirect: '/#kontakt'
+    },
+  ],
+  scrollBehavior (to) {
+    if (to.hash) {
+      return {
+        behavior: 'smooth',
+        el: to.hash, 
+      }
+    }
+  }
 })
 
 export default router
