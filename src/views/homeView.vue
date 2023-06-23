@@ -5,7 +5,7 @@
 
 <template>
   <div class="home-cont">  
-    <main-card :left="this.left" :calculatedLeft="this.calculatedLeft"></main-card>
+    <main-card v-if="this.show" :left="this.left" :calculatedLeft="this.calculatedLeft"></main-card>
     <main-description class='main-description'></main-description>
   </div>
 
@@ -17,7 +17,8 @@ export default{
   data() {
     return {
       left: 0,
-      calculatedLeft: 0
+      calculatedLeft: 0,
+      show: false
     };
   },
   mounted() {
@@ -25,6 +26,7 @@ export default{
     var containerWidth = element.clientWidth;
     this.left = containerWidth / 2
     this.calculatedLeft = this.left /2
+    this.show = true
   }
 }
 </script>
