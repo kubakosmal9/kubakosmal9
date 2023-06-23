@@ -5,7 +5,7 @@
 
 <template>
   <div class="home-cont">  
-    <main-card :left="this.left" :calculatedLeft="this.calculatedLeft"></main-card>
+    <main-card></main-card>
     <main-description class='main-description'></main-description>
   </div>
 
@@ -14,17 +14,6 @@
 <script>
 export default{
   name: "home-view",
-  data() {
-    return {
-      left: 10,
-      calculatedLeft: 5,
-    };
-  },
-  mounted() {
-    var containerWidth = document.querySelector('.home-cont').clientWidth;
-    this.left = containerWidth / 2
-    this.calculatedLeft = this.left /2
-  }
 }
 </script>
 

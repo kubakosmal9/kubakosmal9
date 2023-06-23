@@ -48,24 +48,19 @@
                 isFlipped: true, // Flag to track the flipped state of the card
                 leftAnimation: false,
                 style: 10,
+                left: 0,
+                calculatedLeft: 0
             };
             },
-        props: {
-            left: {
-            type: Number,
-            required: false
-            },
-            calculatedLeft: {
-            type: Number,
-            required: false
-            }
-        },
         methods: {
         flipCard() {
             this.isFlipped = !this.isFlipped; // Toggle the flipped state on each click
         },
         },
         mounted() {
+            var containerWidth = document.querySelector('.home-cont').clientWidth;
+            this.left = containerWidth / 2
+            this.calculatedLeft = this.left /2
             setTimeout(() => {
                 this.style = this.left
             },100)
