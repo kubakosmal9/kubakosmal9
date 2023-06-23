@@ -5,7 +5,7 @@
 
 <template>
   <div class="home-cont">  
-    <main-card v-if="this.show" :left="this.left" :calculatedLeft="this.calculatedLeft"></main-card>
+    <main-card :left="this.left" :calculatedLeft="this.calculatedLeft"></main-card>
     <main-description class='main-description'></main-description>
   </div>
 
@@ -16,17 +16,14 @@ export default{
   name: "home-view",
   data() {
     return {
-      left: 0,
-      calculatedLeft: 0,
-      show: false
+      left: 10,
+      calculatedLeft: 5,
     };
   },
   mounted() {
-    var element = document.querySelector('.home-cont');
-    var containerWidth = element.clientWidth;
+    var containerWidth = document.querySelector('.home-cont').clientWidth;
     this.left = containerWidth / 2
     this.calculatedLeft = this.left /2
-    this.show = true
   }
 }
 </script>
