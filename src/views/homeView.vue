@@ -9,7 +9,7 @@ import mainCard from '../components/mainCard.vue';
 <div class="wrapper">
   <section id="home" class="home-cont">  
     <main-card></main-card>
-    <main-description class='main-description'></main-description>
+    <!-- <main-description class='main-description'></main-description> -->
   </section>
   <section class="aboutView" id="about">
     <about-view></about-view>
