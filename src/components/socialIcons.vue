@@ -98,6 +98,7 @@ export default{
     .cont{
         display: flex;
         flex-direction: row;
+        z-index: 10;
         transition: opacity 1s ease-in;
         position: absolute;
         top: 55%;
