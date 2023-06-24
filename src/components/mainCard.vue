@@ -50,8 +50,6 @@ import { toHandlers } from 'vue';
                 isFlipped: true, // Flag to track the flipped state of the card
                 animation: false,
                 style: 10,
-                left: 0,
-                top: 0,
                 direction: "left:"
             };
             },
