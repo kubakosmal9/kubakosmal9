@@ -27,7 +27,7 @@ export default{
     methods: {
         typeWriter() {
       let i = 0;
-      const speed = 20; // Adjust typing speed (milliseconds)
+      const speed = 15; // Adjust typing speed (milliseconds)
 
       const type = () => {
         if (i < this.text.length) {
