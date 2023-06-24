@@ -1,5 +1,5 @@
 <template>
-    <div :style="{ left: this.style + 'px' }" :class="{ animation: leftAnimation}" class="flip-card" @click="flipCard">
+    <div :style="`${this.direction}${this.style}px`" :class="{ animation: animation}" class="flip-card" @click="flipCard">
         <div class="flip-card-inner" :class="{ flipped: isFlipped }">
             <div class="front">
                 <div class="image-cont">
@@ -41,37 +41,55 @@
 </template>
 
 <script>
+import { toHandlers } from 'vue';
+
     export default{
         name: 'main-card',
         data() {
             return {
                 isFlipped: true, // Flag to track the flipped state of the card
-                leftAnimation: false,
+                animation: false,
                 style: 10,
-                left: 0,
-                calculatedLeft: 0
+                direction: "left:"
             };
             },
         methods: {
         flipCard() {
             this.isFlipped = !this.isFlipped; // Toggle the flipped state on each click
         },
-        },
-        mounted() {
+        cardAnimation() {
             var containerWidth = document.querySelector('.home-cont').clientWidth;
-            this.left = containerWidth / 2
-            this.calculatedLeft = this.left *0.6
-            setTimeout(() => {
-                this.style = this.left
-            },100)
+            var containerHeight = document.querySelector('.home-cont').clientHeight;
+            var left = containerWidth / 2
+            var calculatedLeft = left *0.6
 
+            var containerHeight = document.querySelector('.home-cont').clientHeight;
+            var top = containerHeight/2
+            var calculatedTop = top/2
+            if (containerWidth <= 400) {
+                this.direction = "top:"
+                this.style = top
+                setTimeout(() => {
+                    this.animation = true
+                    this.style = calculatedTop
+                },1900)
+            } else {
+                setTimeout(() => {
+                    this.style = left
+                },100)
+                setTimeout(() => {
+                    this.style = calculatedLeft
+                    this.animation = true
+                },1900)
+            }
             setTimeout(() => {
                 this.isFlipped = false
             },1000)
-            setTimeout(() => {
-                this.style = this.calculatedLeft
-                this.leftAnimation = true
-            },1900)
+
+        }
+        },
+        mounted() {
+            this.cardAnimation()
         },
         
 }
@@ -79,11 +97,11 @@
 </script>
 
 <style scoped lang="scss">
-
 .flip-card{
-
+    font-size: 10px;
     background-color: transparent;
     top: 50%;
+    left: 50%;
     transform: translateX(-50%) translateY(-50%) !important;
     height: 350px;
     width: 680px;
@@ -91,7 +109,7 @@
     perspective: 1000px;
 }
 .animation{
-    transition: left 2s ease-in-out ;
+    transition: all 2s ease-in-out ;
 }
 .flip-card-inner{
     position: relative;
@@ -115,7 +133,7 @@
     align-items: center;        
     position: absolute;
     text-align: left;
-    box-shadow: 0 0 30px rgb(136, 136, 136);
+    box-shadow: 0 0 3em rgb(136, 136, 136);
 
 }
 .back{
@@ -125,9 +143,9 @@
     .site-name{
         z-index: 5;
         position: absolute;
+        font-size: 1.5em;
         transform: translatey(80px);
-        letter-spacing: 5px;
-        font-size: 20px;
+        letter-spacing: 0.5em;
         font-family:'Courier New', Courier, monospace;
     }
     .qr-cont{
@@ -137,13 +155,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 120px;
+        width: 12em;
         background-color: rgba(255, 255, 255, 0.5);
-        border-radius: 10px;
-            height: 120px;
+        border-radius: 1em;
+            height: 12em;
           .QR{
-            width: 100px;
-            height: 100px;
+            width: 10em;
+            height: 10em;
         }  
     }
 
@@ -159,29 +177,29 @@
 }
 .card-cont-line{
     position: absolute;
-    width: 700px;
+    width: 70em;
     top: 30%;
     transform: rotate(50deg);
-    height: 100px;
+    height: 10em;
     opacity: 0.6;
     background-color: rgb(0, 0, 0);
-    right: -100px;
+    right: -10em;
 
 }
 .image-cont{
     position: absolute;
     opacity: 0.85;
     z-index: 10;
-    width: 120px;
-    height: 120px;
-    right: 40px;
-    padding: 9px;
-    top: 30px;
+    width: 12em;
+    height: 12em;
+    right: 4em;
+    padding: 0.9em;
+    top: 3em;
     border-radius: 50%;
     background-color: white;
 }
 .card-image{
-    width: 120px;
+    width: 12em;
     overflow: hidden;
     border-radius: 50%;
 }
@@ -189,19 +207,19 @@
     position: absolute;
     color: white;
     z-index: 5;
-    left: 30px;
+    left: 1em;
     height: 100%;
     transform: translateY(45%);
     width: 50%;
-    font-size: 30px;
+    font-size: 3em;
     font-family:'Courier New', Courier, monospace;
     .name-text{
         margin: 0px
     }
     .name-text1{
-        font-size: 13px;
+        font-size: 0.5em;
         margin: 0px;
-        margin-left: 3px;
+        margin-left: 0.2em;
     }
 }
 .bottom-cont{
@@ -214,13 +232,14 @@
     border-top: 2px dotted var(--blackColor);
     .bottom-side-cont{
         height: 70%;
-        margin-top: 18px;
+        margin-top: 1.8em;
         width: 50%;
         color: white;
         font-family:'Courier New', Courier, monospace;
     .text{
         margin-top: 3px;
         margin-bottom: 8px;
+        font-size: 1.5em;
     }
     }
     .right{
@@ -232,5 +251,16 @@
     .left p{
         margin-left: 10px;
     }
+}
+
+@media screen and (max-width: 400px) {
+
+    .flip-card{
+        font-size: 5px;
+        width: 380px;
+        height: 190px;
+        left: 50%;
+    }
+    
 }
 </style>
