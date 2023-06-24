@@ -87,7 +87,7 @@ export default{
 </script>
 
 <style scoped>
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 480px) {
   .tag{
     left: 0 !important;
     width: 400px !important
@@ -104,6 +104,11 @@ export default{
 .wrapper{
   width: 100%;
   height: 100vh;
+}
+@media screen and (max-width: 480px) {
+  .wrapper{
+    margin-top: 50px;
+  }
 }
 
   .home-cont{

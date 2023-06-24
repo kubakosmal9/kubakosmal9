@@ -94,13 +94,13 @@ export default{
 
     }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 480px) {
     .cont{
         display: flex;
         flex-direction: row;
         transition: opacity 1s ease-in;
         position: absolute;
-        top: 50%;
+        top: 55%;
         left: 50%;
         display: flex;
         transform: translateX(-50%);
