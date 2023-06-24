@@ -5,7 +5,7 @@
   </template>
   
   <style scoped>
-  @media (min-width: 1024px) {
+
     .contact {
       min-height: 100vh;
       width: 100%;
@@ -14,6 +14,6 @@
       background-color: var(--backgroundColor);
       align-items: center;
     }
-  }
+
   </style>
   

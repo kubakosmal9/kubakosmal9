@@ -93,6 +93,9 @@ export default{
     width: 400px !important
   }
 }
+.home-cont{
+  background-color: var(--backgroundColor);
+}
 .tag{
   transition: opacity 2s;
   bottom: 50px;
@@ -107,7 +110,7 @@ export default{
 }
 @media screen and (max-width: 480px) {
   .wrapper{
-    margin-top: 52px;
+    margin-top: 55px;
   }
 }
 
