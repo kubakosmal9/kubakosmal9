@@ -12,7 +12,7 @@
             <img class="svg" src="../assets/svg/github.svg" alt="FB">
         </div>            
         </a>        
-        <a id="icon" href="tel:728558742"> 
+        <a id="icon" href="tel:510447849"> 
         <div class="icon">
             <img style="width: 28px;" class="svg" src="../assets/svg/phone.svg" alt="FB">
         </div>            
