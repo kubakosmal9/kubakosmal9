@@ -65,13 +65,12 @@ import { toHandlers } from 'vue';
 
             var containerHeight = document.querySelector('.home-cont').clientHeight;
             var top = containerHeight/2
-            var calculatedTop = top/2
             if (containerWidth <= 400) {
                 this.direction = "top:"
                 this.style = top
                 setTimeout(() => {
                     this.animation = true
-                    this.style = calculatedTop
+                    this.style = "100"
                 },1900)
             } else {
                 setTimeout(() => {
