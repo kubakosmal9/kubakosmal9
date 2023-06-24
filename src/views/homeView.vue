@@ -107,7 +107,7 @@ export default{
 }
 @media screen and (max-width: 480px) {
   .wrapper{
-    margin-top: 50px;
+    margin-top: 52px;
   }
 }
 
