@@ -1,8 +1,8 @@
 <script setup>
 import mainCard from '../components/mainCard.vue';
   import mainDescription from '../components/mainDescription.vue';
-  import aboutView from '../views/aboutView.vue';
-  import contackView from '../views/contactView.vue';
+  // import aboutView from '../views/aboutView.vue';
+  // import contackView from '../views/contactView.vue';
 </script>
 
 <template>
@@ -11,12 +11,12 @@ import mainCard from '../components/mainCard.vue';
     <main-card></main-card>
     <main-description class='main-description'></main-description>
   </section>
-  <section class="aboutView" id="about">
+  <!-- <section class="aboutView" id="about">
     <about-view></about-view>
   </section>
   <section class="kontakt" id="kontakt">
     <contack-view></contack-view>
-  </section>
+  </section> -->
 </div>
 
 </template>
