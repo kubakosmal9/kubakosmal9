@@ -93,6 +93,9 @@ export default{
     width: 400px !important
   }
 }
+.home-cont{
+  background-color: var(--backgroundColor);
+}
 .tag{
   transition: opacity 2s;
   bottom: 50px;
