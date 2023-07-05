@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import homeView from '../views/homeView.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
@@ -10,21 +10,23 @@ const router = createRouter({
     },
     {
       path: '/about',
-      redirect: '/#about'
     },
     {
       path: '/kontakt',
       redirect: '/#kontakt'
     },
   ],
-  scrollBehavior (to) {
-    if (to.hash) {
-      return {
-        behavior: 'smooth',
-        el: to.hash, 
-      }
-    }
-  }
 })
+
+router.afterEach((to) => {
+  if (to.hash) {
+    const element = document.querySelector(to.hash);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
 
 export default router
