@@ -8,7 +8,7 @@
                 <div class="left-side-cont">
                     <div class="name-cont">
                         <p class="name-text">Jakub Kosmal</p>
-                        <p class="name-text1">Network Engienier</p>
+                        <p class="name-text1">Network Engineer</p>
                     </div>
                 </div>
                 <div class="bottom-cont">
