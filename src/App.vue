@@ -10,6 +10,7 @@ import './assets/var.css'
 
 </template>
 
+
 <style scoped>
 .app-cont{
   height: 100%;

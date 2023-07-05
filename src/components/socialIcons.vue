@@ -34,7 +34,6 @@ export default{
     },
     methods: {
         animation() {
-            console.log("cipa")
             const icons = document.getElementsByClassName('icon');
             for (let i = 0; i < icons.length; i++) {
                 setTimeout(() => {

@@ -4,10 +4,12 @@
   import socialIcons from '../components/socialIcons.vue';
   import aboutView from '../views/AboutView.vue';
   import contackView from '../views/contactView.vue';
+  import sideMenu from '../components/sideMenu.vue'
 </script>
 
 <template>
 <div class="wrapper">
+  <side-menu class="side-menu" ></side-menu>
   <section id="home" class="home-cont">  
     <main-card></main-card>
     <main-description class='main-description'></main-description>
@@ -27,8 +29,6 @@
 </template>
 
 <script>
-  import mitt from 'mitt'
-  const emitter = mitt()
 export default{
   name: 'home-view',
   data() {
@@ -38,57 +38,62 @@ export default{
       hash: '',
     };
   },
-  mounted() {
-    setTimeout(() => {
+  methods: {
+    updateHash()  {
+    const sections = document.querySelectorAll('section');
+    const currentSection = Array.from(sections).findIndex((section) => {
+      const rect = section.getBoundingClientRect();
+      return rect.top <= 81 + 65.188 && rect.bottom > 65.188;
+    });
 
-            this.animationEnd = true
-            },4900)
-    // A function that adds in the url Hash of the currently displayed section on the page. 
-    const updateHash = () => {
-      const sections = document.querySelectorAll('section');
-      const currentSection = Array.from(sections).findIndex((section) => {
-        const rect = section.getBoundingClientRect();
-        return rect.top <= 81 + 65.188 && rect.bottom > 65.188;
-      });
-      // Check if the current section is NOT the first one
-      const isNotFirstSection = currentSection > 0;
+    const isNotFirstSection = currentSection > 0;
 
-      if (isNotFirstSection) {
-        // Only add hash if it's not the first section
-        const hash = `${sections[currentSection].id}`;
-        if (history.replaceState) {
-          history.replaceState(null, null, hash);
-          emitter.emit('rootUrl', true)
-        } else {
-          location.hash = hash;
-          emitter.emit('rootUrl', false)
-        }
-        this.hash = hash; // update the hash data property
-        // Send emit to menu to activate active section
-        emitter.emit('updateSectionHash', hash)
-
+    if (isNotFirstSection) {
+      const hash = `${sections[currentSection].id}`;
+      if (history.replaceState) {
+        history.replaceState(null, null, hash);
+        // emitter.emit('rootUrl', true);
       } else {
-        // If the first section is visible, remove the hash from the URL
-        if (history.replaceState) {
-          history.replaceState(null, null, '/');
-        } else {
-          location.hash = '';
-        }
-        this.hash = ''; // update the hash data property
-        emitter.emit('updateSectionHash', this.hash)
+        location.hash = hash;
+        // emitter.emit('rootUrl', false);
       }
-    };
-    // Call updateHash once after the component is mounted to set the initial hash value
-    window.addEventListener('scroll', updateHash);
-    updateHash();
-  }
+      this.hash = hash;
+      // emitter.emit('updateSectionHash', hash);
+    } else {
+      if (history.replaceState) {
+        history.replaceState(null, null, '/');
+      } else {
+        location.hash = '';
+      }
+      this.hash = '';
+      // emitter.emit('updateSectionHash', this.hash);
+    }
+  },
+
+  },
+  mounted() {
+  setTimeout(() => {
+    this.animationEnd = true;
+  }, 4900);
+  document.addEventListener('wheel', () => this.updateHash());
+  // Call updateHash once after the component is mounted to set the initial hash value
+}
 }
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+.side-menu{
+  position: absolute;
+  z-index: 999;
+}
+
+
+
 @media screen and (max-width: 480px) {
-  .tag{
+
+.tag{
     left: 0 !important;
     width: 400px !important
   }
@@ -113,13 +118,12 @@ export default{
     margin-top: 55px;
   }
 }
-
-  .home-cont{
+.home-cont{
     height: 100%;
     width: 100%;
     position: relative;
   }
-  .aboutView{
+.aboutView{
     position: relative;
     width: 100%;
     height: 100%;
