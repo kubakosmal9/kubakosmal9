@@ -10,6 +10,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "animejs": "^3.2.1",
     "mitt": "^3.0.0",
     "sass": "^1.63.4",
     "vue": "^3.3.4",

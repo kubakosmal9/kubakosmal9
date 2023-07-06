@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="{ hash: '#about' }">
+    <router-link :to="{ hash: '#work' }">
         Klik
     </router-link>
     <router-link :to="{ hash: '#kontakt' }">
