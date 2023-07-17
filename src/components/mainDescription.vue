@@ -67,6 +67,7 @@ export default{
     display: flex;
     font-family:'Open Sans' ;
     flex-direction: column;
+    color: var(--blackColor);
     position: absolute;
     right: 0px;
     transform: translateX(100%) ;
