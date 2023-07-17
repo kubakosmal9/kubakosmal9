@@ -1,8 +1,9 @@
 :root{
     --backgroundColor: #081c15;
+    --backgroundDarker: #06140f;
     --green1: #1b4332;
     --green2: #2d6a4f;
-    --green1: #40916c;
-    --green1: #74c69d;
+    --green3: #40916c;
+    --green4: #74c69d;
     --light: #d8f3dc;
 }

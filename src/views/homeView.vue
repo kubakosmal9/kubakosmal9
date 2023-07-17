@@ -1,7 +1,6 @@
 <script setup>
   import homeTitle from '../components/homeTitle.vue';
-  import contackView from '../views/contactView.vue';
-  import sideMenu from '../components/sideMenu.vue'
+  import infoPage from '../components/infoPage.vue';
 </script>
 
 <template>
@@ -10,12 +9,13 @@
   <section id="home" class="home-cont">  
     <home-title></home-title>
   </section>
-  <section  id="work">
+    <section class="info-cont" id="kontakt">
+      <info-page></info-page>
+  </section>
+  <section class="work-cont" id="work">
 
   </section>
-  <section class="kontakt" id="kontakt">
-    <contack-view></contack-view>
-  </section>
+
 </div>
 
 </template>
@@ -85,12 +85,12 @@ export default{
 }
 
 .home-cont{
-    height: 100%;
+    height: 80vh;
     width: 100%;
     position: relative;
-    background-color: var(--backgroundColor);
-  }
-.workView{
+    background-image: linear-gradient(to bottom, #06140f, #1b4332);
+background-size: 100% 200%;  }
+.info-cont{
     position: relative;
     width: 100%;
     height: 100%;
