@@ -1,16 +1,14 @@
 <script setup>
-  import mainCard from '../components/mainCard.vue';
-  import mainDescription from '../components/mainDescription.vue';
-  import socialIcons from '../components/socialIcons.vue';
-  import workView from '../views/workView.vue';
+  import homeTitle from '../components/homeTitle.vue';
   import contackView from '../views/contactView.vue';
   import sideMenu from '../components/sideMenu.vue'
 </script>
 
 <template>
 <div class="wrapper">
-  <side-menu class="side-menu" ></side-menu>
+  <!-- <side-menu class="side-menu" ></side-menu> -->
   <section id="home" class="home-cont">  
+    <home-title></home-title>
   </section>
   <section  id="work">
 
@@ -27,7 +25,6 @@ export default{
   name: 'home-view',
   data() {
     return {
-      animationEnd: false,
       // Variable parsing the current hash of the displayed section
       hash: '',
     };
@@ -67,7 +64,6 @@ export default{
   },
   mounted() {
   setTimeout(() => {
-    this.animationEnd = true;
   }, 4900);
   document.addEventListener('wheel', () => this.updateHash());
   // Call updateHash once after the component is mounted to set the initial hash value
