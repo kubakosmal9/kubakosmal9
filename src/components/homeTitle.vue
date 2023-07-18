@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
       <p class="name">Jakub Kosmal</p>
-      <p class="subtitle">- My life in cables and code -</p>
+      <p class="subtitle">- Network Engineer -</p>
     </div>
   </template>
   

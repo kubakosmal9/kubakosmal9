@@ -1,117 +1,35 @@
 <template>
-    <div :style="{ opacity: animationEnd ? '1' : '0' }" class="cont">
-        <div class="text">
-            <div class="text-wrapp">
-                <p class="writed-text"><span class="title">Witaj</span>  {{ typedText }} </p>
-
-            </div>
-        </div>
-        <!-- <learn-more-button></learn-more-button>  -->
+    <div class="wrapper">
+           <h1>Hi I'm Jakub, </h1> 
+           <p>a budding 22-year-old IT professional with 
+            Experience in network engineering. 
+            My passion is web development. Take a look at my resume and 
+            professional history. I will be happy to share the projects I have completed. 
+            Contact me if you have questions or interest in working together. 
+            Thank you for visiting the site!</p>
     </div>
 </template>
-
 <script>
-  import learnMoreButton from '../components/learmMoreButton.vue';
 export default{
-    name: 'main-description',
-    data() {
-        return {
-            animationEnd: false,
-            text: "na mojej stronie internetowej! Jestem Jakub, początkujący 22-letni informatyk z doświadczeniem w dziale network engineeringu. Moją pasją jest tworzenie stron internetowych. Zapoznaj się z moim CV i historią zawodową. Chętnie podzielę się projektami, które zrealizowałem. Skontaktuj się ze mną, jeśli masz pytania lub zainteresowanie współpracą. Dziękuję za odwiedzenie strony!",
-            typedText: ""
-        }
-    },
-    components: {
-        learnMoreButton
-    },
-    methods: {
-        typeWriter() {
-      let i = 0;
-      const speed = 18; // Adjust typing speed (milliseconds)
-
-      const type = () => {
-        if (i < this.text.length) {
-          this.typedText += this.text.charAt(i);
-          i++;
-          setTimeout(type, speed);
-        }
-      };
-      type();
-    }
-        },
     
-
-    mounted() {
-        setTimeout(() => {
-            this.animationEnd = true
-            this.typeWriter();
-            },3900)
-    }
 }
 </script>
-<style scoped>
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-.writed-text {
-  overflow: hidden;
-    min-height: 158px;
-  animation: typing 2s steps(40, end);
-}
-.cont{
+<style lang="scss" scoped>
+.wrapper{
+    max-width: 35rem;
     display: flex;
-    font-family:'Open Sans' ;
+    color: var(--light);
     flex-direction: column;
-    color: var(--blackColor);
-    position: absolute;
-    right: 0px;
-    transform: translateX(100%) ;
-    display: flex;
-    transition: opacity 1s ease-in;
-    justify-content: center;
-    align-items: left;
-    font-size: 42px;
-    width: 50%;
-    height: 50%;
-    text-align: left;
-    top: 50%;
-    transform: translateY(-50%);
-}
-.title{
-    font-size: 2em;
-    margin-bottom: 10px;
-    font-weight: 800;
-}
-.text{
-    font-size: 0.5em;
-    margin-top: 0;
-    height: 100%;
-    min-height: 159;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 90%;
-    line-height: 1.4em;
-}
+    display: inline;
+    .wrapper h1{
+        margin: 0;
+        align-self: flex-start;
+        font-size: 2rem;
+    }
+    .wrapper p{
+        font-size: 1.2rem;
+        margin: 0;
+    }
 
-@media screen and (max-width: 480px) {
-
-.cont{
-    width: 100%;
-    height: 50%;
-    position: absolute;
-    top: 300px;
-    font-size: 27px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-    
 }
 </style>

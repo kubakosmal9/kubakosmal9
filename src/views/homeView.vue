@@ -1,6 +1,7 @@
 <script setup>
   import homeTitle from '../components/homeTitle.vue';
   import infoPage from '../components/infoPage.vue';
+  import cv from '../components/cv.vue';
 </script>
 
 <template>
@@ -9,11 +10,11 @@
   <section id="home" class="home-cont">  
     <home-title></home-title>
   </section>
-    <section class="info-cont" id="kontakt">
+    <section class="info-cont" id="about">
       <info-page></info-page>
   </section>
-  <section class="work-cont" id="work">
-
+  <section class="CV" id="CV">
+    <cv></cv>
   </section>
 
 </div>
@@ -81,11 +82,10 @@ export default{
 
 .wrapper{
   width: 100%;
-  height: 100vh;
 }
 
 .home-cont{
-    height: 80vh;
+    height: 90vh;
     width: 100%;
     position: relative;
     background-image: linear-gradient(to bottom, #06140f, #1b4332);
@@ -93,6 +93,5 @@ background-size: 100% 200%;  }
 .info-cont{
     position: relative;
     width: 100%;
-    height: 100%;
   }
 </style>

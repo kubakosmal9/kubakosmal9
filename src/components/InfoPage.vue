@@ -1,29 +1,55 @@
 <template>
-<div class="wrapper">
-    <div class="left">
-
+<div id="infoPage" class="wrapper ">
+    <div id="left" class="left">
+        <personal-info></personal-info>
     </div>
-    <div class="middle">
-
+    <div id="midlle" class="middle">
+        <main-description></main-description>
     </div>
-    <div class="right">
-
+    <div id="right" class="right">
+        <cv-photo></cv-photo>
     </div>
 </div>
 
 </template>
 
 <script>
+import anime from 'animejs';
+import personalInfo from './personalInfo.vue'
+import mainDescription from './mainDescription.vue'
+import cvPhoto from './CvPhoto.vue'
 export default {
+    components: {
+        personalInfo,
+        mainDescription,
+        cvPhoto
+    },
+    mounted() {
+        setTimeout(() => {
+        anime({
+            targets: '#left, #midlle, #right',
+            translateY: [150, 0],
+            opacity: [0, 1],
+            duration: 1000,
+            easing: 'easeOutSine',
+        });
+        }, 1500);
+    } 
 
 }
 </script>
 
 <style lang="scss" scoped>
 .wrapper{
-    background-color: transparent;
     display: flex;
+    font-family: 'Rubik';
     background-color: var(--backgroundColor);
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 1rem;
+    #left, #midlle, #right{
+        transform: translateY(150px);
+    }
 }
 </style>

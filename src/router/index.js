@@ -9,11 +9,12 @@ const router = createRouter({
       component: homeView
     },
     {
-      path: '/work',
+      path: '/CV',
+      redirect: '/#CV'
     },
     {
-      path: '/kontakt',
-      redirect: '/#kontakt'
+      path: '/about',
+      redirect: '/#about'
     },
   ],
 })

@@ -11,9 +11,10 @@
   },
   "dependencies": {
     "animejs": "^3.2.1",
-    "mitt": "^3.0.0",
+    "mitt": "^3.0.1",
     "sass": "^1.63.4",
     "vue": "^3.3.4",
+    "vue-gtag": "^2.0.1",
     "vue-router": "^4.2.2"
   },
   "devDependencies": {
