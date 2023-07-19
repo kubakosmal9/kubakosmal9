@@ -16,7 +16,6 @@
   <section class="CV" id="CV">
     <cv></cv>
   </section>
-
 </div>
 
 </template>

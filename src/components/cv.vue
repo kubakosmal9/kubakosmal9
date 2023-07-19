@@ -19,6 +19,7 @@
 </template>
 <script>
 import emitter from '../mitt.js'; 
+import axios from 'axios';
 import cvDownload from './cvDownload.vue'
 export default{
     components: {
@@ -49,22 +50,21 @@ export default{
             });
         },
         updateDataBaseCounter() {
-            const counterValue = this.counter;
-            fetch('https://cvdownload-4fef.restdb.io/rest/cvdownload', {
-                method: 'POST',
+            const url = 'https://cvdownload-4fef.restdb.io/rest/cvdownload/64b6b3700c10e2790004c74b';
+            const apiKey = '64b6b8ca86d8c5aed6ed913b';
+            var value = this.counter
+            const data = { counter: value };
+
+            axios.put(url, data, {
                 headers: {
-                    'cache-control': 'no-cache',
-                    'x-apikey': '7e0492df4013aab19d4afb683a52c1efd94c5',
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify({ counter: '123' })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                })
-                .catch(error => {
-                    console.error(error);
+                'cache-control': 'no-cache',
+                'x-apikey': apiKey,
+                'content-type': 'application/json',
+            },
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Handle errors here
             });
         }
     },
@@ -73,7 +73,7 @@ export default{
         emitter.on("updateCounter", () =>{
             this.counter++
             emitter.emit("blockUpdating");
-            
+            this.updateDataBaseCounter()
         });
     }
 
@@ -84,7 +84,7 @@ export default{
 .wrapper{
     background-color: var(--backgroundColor);
     min-width: 100%;
-    height: 50vh;
+    height: 200vh;
     display: flex;
     gap: 2rem;
     justify-content: center;

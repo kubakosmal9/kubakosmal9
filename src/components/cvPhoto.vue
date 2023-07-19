@@ -11,7 +11,7 @@ export default{
 <style lang="scss" scoped>
 .wrapper{
     max-width: 20rem;
-    opacity: 0;
+
     max-height: 30rem;
     position: relative;
     display: flex;

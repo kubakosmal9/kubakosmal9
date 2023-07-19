@@ -23,8 +23,8 @@ export default{
     },
     methods: {
         downloadCV() {   
-            // window.open('https://drive.google.com/uc?export=download&id=1RtOTS6uI5YSACtSp_J_b4KFGBeuuwA_I', '_blank');
-            // this.$gtag.event('CV');
+            window.open('https://drive.google.com/uc?export=download&id=1RtOTS6uI5YSACtSp_J_b4KFGBeuuwA_I', '_blank');
+            this.$gtag.event('CV');
             if(this.block === false) {
                 emitter.emit("updateCounter");
             } return
