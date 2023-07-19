@@ -4,30 +4,31 @@
     </span>
 </template>
 <script>
+import emitter from '../mitt.js'; 
 export default{
+    data() {
+        return{
+            block: false
+        }
+    },
+    mounted() {
+        if(localStorage.getItem("BlockUpdating")) {
+            this.block = true
+        }
+        emitter.on("blockUpdating", () =>{
+            console.log("blockUpdating")
+            this.block = true
+            localStorage.setItem("BlockUpdating", true);
+        });
+    },
     methods: {
         downloadCV() {   
             // window.open('https://drive.google.com/uc?export=download&id=1RtOTS6uI5YSACtSp_J_b4KFGBeuuwA_I', '_blank');
             // this.$gtag.event('CV');
-            // var options = {
-//   method: 'GET',
-//   headers: {
-//     'Content-Type': 'application/json',
-//     'x-apikey': '64b6b8ca86d8c5aed6ed913b' // Replace with your actual API key
-//   }
-            // };
+            if(this.block === false) {
+                emitter.emit("updateCounter");
+            } return
 
-            // fetch('https://cvdownload-4fef.restdb.io/rest/cvdownload', options)
-            //   .then(response => response.json())
-            //   .then(body => {
-            //     console.log(body);
-            //   })
-            //   .catch(error => {
-            //     console.error('Error:', error);
-            //     // Handle errors here
-            //   });
-
-            console.log("emiter started")
         }
     }
 }

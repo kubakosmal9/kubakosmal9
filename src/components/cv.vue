@@ -9,7 +9,7 @@
             <p class="subtitle">Happy Clients</p>
         </div>
         <div class="panel cv-count">
-            <p class="counter">225</p>
+            <p class="counter">{{ this.counter }}</p>
             <p class="subtitle">Downloads of CV</p>
         </div>
         <div class="panel button">
@@ -18,10 +18,63 @@
     </div>
 </template>
 <script>
+import emitter from '../mitt.js'; 
 import cvDownload from './cvDownload.vue'
 export default{
     components: {
         cvDownload,
+    },
+    data() {
+        return {
+            counter: 0,
+        }
+    },
+    methods: {
+        initialFetchOfCounter() {
+            var options = {
+            method: 'GET',
+            headers: {
+                    'Content-Type': 'application/json',
+                    'x-apikey': '64b6b8ca86d8c5aed6ed913b' // Replace with your actual API key
+                }
+            };
+            fetch('https://cvdownload-4fef.restdb.io/rest/cvdownload', options)
+                .then(response => response.json())
+                .then(body => {
+                this.counter = body[0].counter
+                })
+                .catch(error => {
+                console.error('Error:', error);
+                // Handle errors here
+            });
+        },
+        updateDataBaseCounter() {
+            const counterValue = this.counter;
+            fetch('https://cvdownload-4fef.restdb.io/rest/cvdownload', {
+                method: 'POST',
+                headers: {
+                    'cache-control': 'no-cache',
+                    'x-apikey': '7e0492df4013aab19d4afb683a52c1efd94c5',
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({ counter: '123' })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error(error);
+            });
+        }
+    },
+    mounted() {
+        this.initialFetchOfCounter()
+        emitter.on("updateCounter", () =>{
+            this.counter++
+            emitter.emit("blockUpdating");
+            
+        });
     }
 
 }
