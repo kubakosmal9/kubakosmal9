@@ -45,7 +45,7 @@ export default{
                 this.counter = body[0].counter
                 })
                 .catch(error => {
-                console.error('Error:', error);
+                console.error('Error while requesting Database:', error);
                 // Handle errors here
             });
         },
@@ -63,7 +63,7 @@ export default{
             },
             })
             .catch(error => {
-                console.error('Error:', error);
+                console.error('Error while requesting Database:', error);
                 // Handle errors here
             });
         }
