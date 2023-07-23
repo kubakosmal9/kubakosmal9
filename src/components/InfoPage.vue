@@ -7,12 +7,14 @@
         <main-description></main-description>
     </div>
     <div id="right" class="right">
+        <cv></cv>
     </div>
 </div>
 
 </template>
 
 <script>
+import cv from './cv.vue';
 import anime from 'animejs';
 import personalInfo from './personalInfo.vue'
 import mainDescription from './mainDescription.vue'
@@ -21,6 +23,7 @@ export default {
     components: {
         personalInfo,
         mainDescription,
+        cv,
     },
     mounted() {
         setTimeout(() => {

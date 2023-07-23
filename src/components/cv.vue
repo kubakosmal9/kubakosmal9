@@ -1,20 +1,12 @@
 <template>
     <div class="wrapper">
-        <div class="panel">
-            <p class="counter">3</p>
-            <p class="subtitle">years of experience</p>
-        </div>
-        <div class="panel">
-            <p class="counter">100+</p>
-            <p class="subtitle">Happy Clients</p>
-        </div>
-        <div class="panel cv-count">
-            <p class="counter">{{ this.counter }}</p>
-            <p class="subtitle">Downloads of CV</p>
-        </div>
-        <div class="panel button">
+        <div class="cv-panel">
+            <p class="title">Download my CV</p>
             <cv-download></cv-download>
+            <p class="counter">Total Downloads: {{ this.counter }}</p>              
         </div>
+
+
     </div>
 </template>
 <script>
@@ -84,17 +76,12 @@ export default{
 .wrapper{
     background-color: var(--backgroundColor);
     min-width: 100%;
-    height: 200vh;
     display: flex;
-    gap: 2rem;
+    flex-direction: column;
     justify-content: center;
-    .button{
-        
-    }
-    .panel{
+    .cv-panel{
         background-color: var(--green1);
-        width: 20rem;
-        height: 8rem;
+        width: 23rem;
         color: var(--light);
         display: flex;
         margin-top: 1rem;
@@ -105,11 +92,13 @@ export default{
         font-family: 'Rubik';
         border-radius: 1rem;
         .counter{
-            font-size: 3rem;
+            font-size: 1rem;
             margin: 0;
+            padding: 0.5rem 0 1rem 0;
         }
-        .subtitle{
-            font-size: 1.5rem;
+        .title{
+            font-size: 2rem;
+            padding: 1.5rem 0 1.5rem 0;
             margin: 0;
         }
     }

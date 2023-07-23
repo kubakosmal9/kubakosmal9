@@ -1,7 +1,6 @@
 <script setup>
   import homeTitle from '../components/homeTitle.vue';
   import infoPage from '../components/infoPage.vue';
-  import statistic from '../components/statistic.vue';
 </script>
 
 <template>
@@ -14,7 +13,6 @@
       <info-page></info-page>
   </section>
   <section class="Statistic" id="Statistic">
-    <statistic></statistic>
   </section>
 </div>
 
@@ -92,5 +90,6 @@ background-size: 100% 200%;  }
 .info-cont{
     position: relative;
     width: 100%;
+
   }
 </style>
