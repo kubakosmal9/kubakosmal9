@@ -12,24 +12,9 @@
 import anime from 'animejs';
 export default{
     name: 'photo',
-    props: {
-        photoAnimationTrigger: {
-            type: Boolean,
-            required: true,
-        }
-    },
-    // watch: {
-    //     photoAnimationTrigger(newValue, oldValue) {
-    //         console.log("chenged")
-    //         this.animate()
-    //     }
-    // },
     methods: {
     animate() {
-        var t1 = anime.timeline({
-            
-        });
-
+        var t1 = anime.timeline({});
         t1.add({
             targets: '.dot',
             translateX: '-8px',
@@ -37,7 +22,7 @@ export default{
         t1.add({
             targets: '.dot',
             top: '32%',
-            duration: 2000,
+            duration: 1500,
             easing: 'easeInOutElastic',
         });
         t1.add({
@@ -47,20 +32,20 @@ export default{
         }, '-=400')
         t1.add({
             targets: '.border-dot',
-            height: '30rem',
-            width: '30rem',
+            height: '22rem',
+            width: '22rem',
             opacity: [1, 0.7, 0],
-            duration: 800,
+            duration: 1000,
             easing: 'easeInOutQuad',
-        }, '-=400')
+        }, '-=700')
         t1.add({
             targets: '.dot-dot',
             height: '26rem',
             width: '26rem',
             opacity: [1, 0.7, 0],
-            duration: 800,
+            duration: 900,
             easing: 'easeInOutQuad',
-        }, '-=400')
+        }, '-=700')
 
         t1.add({
             targets: '.dot-second',
@@ -73,7 +58,7 @@ export default{
             ],
             duration: 800,
             easing: 'easeInOutQuad',
-        }, '-=400')
+        }, '-=700')
         t1.add({
             targets: '.photo',
             height: '20rem',
@@ -82,15 +67,15 @@ export default{
             scale: [0, 1],
             duration: 400,
             easing: 'easeInOutQuad',
-        }, '-=400')
+        }, '-=700')
       
       
 
     },
   },
   mounted() {
-    this.animate()
-  }
+        this.animate();
+    },
 }
 </script>
 <style lang="scss" scoped>
@@ -101,6 +86,7 @@ export default{
     display: flex;
     position: relative;
     bottom: 0;
+    opacity: 0.8;
     align-items: center;
     justify-content: center;
 

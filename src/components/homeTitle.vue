@@ -2,7 +2,7 @@
     <div class="wrapper">
       <p class="name">Jakub Kosmal</p>
       <p class="subtitle">- Network Engineer -</p>
-      <photo :photoAnimationTrigger="this.photoAnimation"></photo>
+      <photo></photo>
     </div>
   </template>
   
@@ -36,9 +36,6 @@ mounted() {
     delay: (el, i) => 80 * (i + 1)
   });
   this.animateText()
-  setTimeout(() => {
-    this.photoAnimation = true;
-  }, 3000);
   setTimeout(  setInterval(this.animateText, 10000), 100)
   setTimeout(  setInterval(this.animateLetters, 1000), 2000)
 
