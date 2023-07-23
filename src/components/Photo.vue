@@ -80,9 +80,9 @@ export default{
 </script>
 <style lang="scss" scoped>
 .photo-wrapper{
-    margin-top: 100px;
     width: 20rem;
     height: 30rem;
+    align-items: flex-start;
     display: flex;
     position: relative;
     bottom: 0;
@@ -93,6 +93,7 @@ export default{
     // overflow: hidden;
     .dot {
         width: 1rem;
+        
         position: absolute;
         top: 100%;
         left: 50%;
@@ -133,8 +134,10 @@ export default{
         }
     }
     .photo{
-        align-self: flex-start;
+        position: absolute;
+        top: 0;
         opacity: 0;
+        transform: translateY(-10rem);
         width: 20rem;
         height: 20rem;
         box-sizing: border-box;
