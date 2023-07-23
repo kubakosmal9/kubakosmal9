@@ -22,7 +22,7 @@ export default{
         t1.add({
             targets: '.dot',
             top: '32%',
-            duration: 2500,
+            duration: 2000,
             easing: 'easeInOutElastic',
         });
         t1.add({
