@@ -1,7 +1,7 @@
 <script setup>
   import homeTitle from '../components/homeTitle.vue';
   import infoPage from '../components/infoPage.vue';
-  import cv from '../components/cv.vue';
+  import statistic from '../components/statistic.vue';
 </script>
 
 <template>
@@ -13,8 +13,8 @@
     <section class="info-cont" id="about">
       <info-page></info-page>
   </section>
-  <section class="CV" id="CV">
-    <cv></cv>
+  <section class="Statistic" id="Statistic">
+    <statistic></statistic>
   </section>
 </div>
 

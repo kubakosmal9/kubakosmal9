@@ -9,8 +9,8 @@ const router = createRouter({
       component: homeView
     },
     {
-      path: '/CV',
-      redirect: '/#CV'
+      path: '/Statistic',
+      redirect: '/#Statistic'
     },
     {
       path: '/about',
