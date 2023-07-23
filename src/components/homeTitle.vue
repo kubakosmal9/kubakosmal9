@@ -2,13 +2,22 @@
     <div class="wrapper">
       <p class="name">Jakub Kosmal</p>
       <p class="subtitle">- Network Engineer -</p>
+      <photo :photoAnimationTrigger="this.photoAnimation"></photo>
     </div>
   </template>
   
   <script>
   import anime from 'animejs';
-  
+  import Photo from '../components/Photo.vue'
   export default {
+components: {
+  Photo
+},
+data() {
+  return {
+    photoAnimation: false
+  }
+},
 mounted() {
   var textWrapper = document.querySelector('.name');
   textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
@@ -27,11 +36,15 @@ mounted() {
     delay: (el, i) => 80 * (i + 1)
   });
   this.animateText()
+  this.photoAnimation = true
   setTimeout(  setInterval(this.animateText, 10000), 100)
   setTimeout(  setInterval(this.animateLetters, 1000), 2000)
 
 },
 methods: {
+  animatephoto() {
+
+  },
     animateText() {
         var letters = document.querySelectorAll('.name .letter');
         var delay = 200; // Delay between each letter animation
@@ -65,9 +78,6 @@ methods: {
             });    
     }
 }
-
-
-
 };
   </script>
   
