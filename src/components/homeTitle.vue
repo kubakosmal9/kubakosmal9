@@ -6,10 +6,10 @@
     </div>
   </template>
   
-  <script>
-  import anime from 'animejs';
-  import Photo from '../components/Photo.vue'
-  export default {
+<script>
+import anime from 'animejs';
+import Photo from '../components/Photo.vue'
+export default {
 components: {
   Photo
 },
@@ -36,7 +36,9 @@ mounted() {
     delay: (el, i) => 80 * (i + 1)
   });
   this.animateText()
-  this.photoAnimation = true
+  setTimeout(() => {
+    this.photoAnimation = true;
+  }, 3000);
   setTimeout(  setInterval(this.animateText, 10000), 100)
   setTimeout(  setInterval(this.animateLetters, 1000), 2000)
 
@@ -88,6 +90,9 @@ methods: {
     display: flex;
     justify-content: center;
     position: relative;
+    align-items: center;
+    flex-direction: column;
+
     .wrapper::before {
     content: "";
     position: absolute;
@@ -101,12 +106,7 @@ methods: {
     background-size: cover;
     background-position: bottom;
   }
-  
-    align-items: center;
-    position: relative;
-  
     .name {
-      position: absolute;
       top: 9rem;
       margin: 0;
       color: var(--green1);
@@ -114,7 +114,6 @@ methods: {
       font-weight: 00;
       letter-spacing: 1rem;
     }
-  
     .name .letter {
       z-index: 2;
 
