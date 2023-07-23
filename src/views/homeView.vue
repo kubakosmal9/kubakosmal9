@@ -1,6 +1,7 @@
 <script setup>
   import homeTitle from '../components/homeTitle.vue';
   import infoPage from '../components/infoPage.vue';
+  import socialButtons from '../components/socialButtons.vue'
 </script>
 
 <template>
@@ -12,7 +13,8 @@
     <section class="info-cont" id="about">
       <info-page></info-page>
   </section>
-  <section class="Statistic" id="Statistic">
+  <section class="socials" id="socials">
+    <socialButtons></socialButtons>
   </section>
 </div>
 
@@ -82,14 +84,13 @@ export default{
 }
 
 .home-cont{
-    height: 90vh;
-    width: 100%;
-    position: relative;
-    background-image: linear-gradient(to bottom, #06140f, #1b4332);
-background-size: 100% 200%;  }
+  height: 90vh;
+  width: 100%;
+  position: relative;
+  background-image: linear-gradient(to bottom, #06140f, #1b4332);
+  background-size: 100% 200%;  }
 .info-cont{
-    position: relative;
-    width: 100%;
-
-  }
+  position: relative;
+  width: 100%;
+}
 </style>

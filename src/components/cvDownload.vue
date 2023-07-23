@@ -110,7 +110,6 @@ export default{
 }
 .cont:hover{
     cursor: pointer;
-    scale: 0.995;
     background-color: var(--green2);
 }
 .cont:hover p{
