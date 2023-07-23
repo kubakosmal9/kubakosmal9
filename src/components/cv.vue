@@ -25,6 +25,7 @@ export default{
     methods: {
         initialFetchOfCounter() {
             var options = {
+            mode: 'no-cors',
             method: 'GET',
             headers: {
                     'Content-Type': 'application/json',
