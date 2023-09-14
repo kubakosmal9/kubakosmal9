@@ -19,22 +19,28 @@ export default{
     },
     data() {
         return {
-            counter: 0,
+            counter: "24",
         }
+    },
+    computed: {
+        totalCounter() {
+        // You can put any additional logic here if needed
+        return this.counter;
+        },
     },
     methods: {
         initialFetchOfCounter() {
             var options = {
-            mode: 'no-cors',
             method: 'GET',
             headers: {
                     'Content-Type': 'application/json',
-                    'x-apikey': '64b6b8ca86d8c5aed6ed913b' // Replace with your actual API key
+                    'x-apikey': '64bd506e86d8c5a6daed91d5' // Replace with your actual API key
                 }
             };
             fetch('https://cvdownload-4fef.restdb.io/rest/cvdownload', options)
                 .then(response => response.json())
                 .then(body => {
+                    console.log(body[0].counter)
                 this.counter = body[0].counter
                 })
                 .catch(error => {
@@ -43,15 +49,25 @@ export default{
             });
         },
         updateDataBaseCounter() {
-            const url = 'https://cvdownload-4fef.restdb.io/rest/cvdownload/64b6b3700c10e2790004c74b';
-            const apiKey = '64b6b8ca86d8c5aed6ed913b';
+            const url = 'https://cvdownload-4fef.restdb.io/rest/cvdownload/64bd506e86d8c5a6daed91d5';
             var value = this.counter
             const data = { counter: value };
 
+            var options = { 
+                method: 'PUT',
+                url: 'https://cvdownload-4fef.restdb.io/rest/cvdownload/',
+                headers: 
+                { 'cache-control': 'no-cache',
+                    'x-apikey': '7e0492df4013aab19d4afb683a52c1efd94c5',
+                    'content-type': 'application/json' },
+                body: { counter: this.counter },
+                json: true 
+            };
+            
+            
             axios.put(url, data, {
                 headers: {
-                'cache-control': 'no-cache',
-                'x-apikey': apiKey,
+                'x-apikey': '64bd506e86d8c5a6daed91d5',
                 'content-type': 'application/json',
             },
             })
