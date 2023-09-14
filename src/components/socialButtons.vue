@@ -36,19 +36,22 @@ export default{}
     width: 100%;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    height: 2rem;
+    height: 5rem;
     display: flex;
     position: relative;
     justify-content: center;
-    transform-origin: center;
     gap: 8rem;
     .icon{
         transform-origin: center;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     svg{
         transition: all 0.2s ease-in-out;
         position: absolute;
-        transform-origin: center;
         padding: 2px;
     }
     .icon:hover .svg{
