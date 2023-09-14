@@ -3,7 +3,11 @@
         <div class="cv-panel">
             <p class="title">Download my CV</p>
             <cv-download></cv-download>
-            <p class="counter">Total Downloads: {{ this.counter }}</p>              
+            <div class="p-wrapper">
+            <p class="text">Total Downloads:</p>   
+            <p class="counter"> {{ this.counter }}</p>
+            </div>
+           
         </div>
 
 
@@ -20,15 +24,33 @@ export default{
     data() {
         return {
             counter: "24",
+            intervalId: null 
         }
     },
     computed: {
         totalCounter() {
-        // You can put any additional logic here if needed
         return this.counter;
         },
     },
     methods: {
+        randomCounterValue() {
+            if (this.intervalId === null) {
+                this.intervalId = setInterval(() => {
+                    // Generujemy losową liczbę od 1 do 100
+                    const randomValue = Math.floor(Math.random() * 100) + 1;
+                    
+                    // Aktualizujemy wartość counter na losową liczbę
+                    this.counter = randomValue;
+                }, 80);
+            }
+        },
+        stopRandomCounterValue() {
+            // Sprawdź, czy interwał jest uruchomiony, zanim spróbujesz go zatrzymać
+            if (this.intervalId !== null) {
+            clearInterval(this.intervalId);  // Anuluj interwał za pomocą clearInterval
+            this.intervalId = null;  // Zresetuj identyfikator interwału
+            }
+        },
         initialFetchOfCounter() {
             var options = {
             method: 'GET',
@@ -41,11 +63,8 @@ export default{
                 .then(response => response.json())
                 .then(body => {
                 this.counter = body[0].counter
+                this.stopRandomCounterValue()
                 })
-                .catch(error => {
-                console.error('Error while requesting Database:', error);
-                // Handle errors here
-            });
         },
         updateDataBaseCounter() {
             const objectId = "64b6b3700c10e2790004c74b";
@@ -65,12 +84,6 @@ export default{
             };
 
             axios(options)
-                .then(response => {
-                    console.log("Zaktualizowano wartość counter:", response.data);
-                })
-                .catch(error => {
-                    console.error("Błąd podczas aktualizacji:", error);
-                });
         }
     },
     
@@ -81,6 +94,7 @@ export default{
             emitter.emit("blockUpdating");
             this.updateDataBaseCounter()
         });
+        this.randomCounterValue()
     }
 
 }
@@ -105,11 +119,25 @@ export default{
         align-items: center;
         font-family: 'Rubik';
         border-radius: 1rem;
-        .counter{
-            font-size: 1rem;
-            margin: 0;
-            padding: 0.5rem 0 1rem 0;
-        }
+        .p-wrapper{
+            display: flex;
+            gap: 10px;
+            justify-content: space-around;
+            align-items: center;
+            .text{
+                font-size: 1rem;
+                margin: 0;
+                padding: 0.5rem 0 1rem 0;
+            }              
+            .counter{
+                font-size: 1rem;
+                width: 1rem;
+                margin: 0;
+                padding: 0.5rem 0 1rem 0;
+            }          
+   
+        }        
+
         .title{
             font-size: 2rem;
             padding: 1.5rem 0 1.5rem 0;
