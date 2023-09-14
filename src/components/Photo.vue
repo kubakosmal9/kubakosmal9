@@ -1,10 +1,12 @@
 <template>
     <div class="photo-wrapper">
         <img class="photo" src="../assets/img/cardImg.jpg" alt="">
-        <div class="dot">
-            <div class="dot-dot"></div>
-            <div class="dot-second"></div>
-            <div class="border-dot"></div>
+        <div class="dot-wrapper">
+            <div class="dot">
+                <div class="dot-dot"></div>
+                <div class="dot-second"></div>
+                <div class="border-dot"></div>
+            </div>
         </div>
     </div>
 </template>
@@ -21,7 +23,8 @@ export default{
         })
         t1.add({
             targets: '.dot',
-            top: '32%',
+            top: '50%',
+            translateY: '-8px',
             duration: 2000,
             easing: 'easeInOutElastic',
         });
@@ -80,7 +83,6 @@ export default{
 </script>
 <style lang="scss" scoped>
 .photo-wrapper{
-    margin-top: 100px;
     width: 20rem;
     height: 30rem;
     display: flex;
@@ -91,7 +93,14 @@ export default{
     justify-content: center;
 
     // overflow: hidden;
-    .dot {
+    .dot-wrapper{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+
+        width: 100%;
+        height: 100%;
+        .dot {
         width: 1rem;
         position: absolute;
         top: 100%;
@@ -132,8 +141,9 @@ export default{
             position: absolute;
         }
     }
+    }
     .photo{
-        align-self: flex-start;
+        align-self:center;
         opacity: 0;
         width: 20rem;
         height: 20rem;
