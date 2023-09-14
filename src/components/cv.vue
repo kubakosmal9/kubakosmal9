@@ -62,9 +62,15 @@ export default{
             fetch('https://cvdownload-4fef.restdb.io/rest/cvdownload', options)
                 .then(response => response.json())
                 .then(body => {
+
                 this.counter = body[0].counter
                 this.stopRandomCounterValue()
                 })
+                .catch(error => {
+                console.error('Error while requesting Database:', error);
+                this.stopRandomCounterValue()
+                this.counter = Math.floor(Math.random() * 100) + 1
+            });
         },
         updateDataBaseCounter() {
             const objectId = "64b6b3700c10e2790004c74b";
