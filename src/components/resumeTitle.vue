@@ -1,8 +1,8 @@
 <template>
-    <div class="resume-title-cont">
+    <div  class="resume-title-cont">
         <svg xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1000 500">
-            <path class="svg" id="path" fill="none"  stroke-width="3"
+            <path class="svg hide-stroke" id="path" fill="none"  stroke-width="3"
                 d="M 111.55,86.00
                 C 111.55,86.00 148.94,86.00 148.94,86.00
                     173.86,86.00 190.74,86.96 199.56,88.88
@@ -138,24 +138,39 @@ export default{
     data() {
         return {
         letters: ["R", "E", "S", "U", "M", "E"],
+        animate: false,
         };
     },
     methods: {
         AnimatePath() {
+            console.log("Animuje się kurwa");
             anime({
                 targets: '#path',
                 strokeDashoffset: [anime.setDashoffset, 0],
                 easing: 'easeInOutSine',
-                duration: 10000,
+                duration: 9000,
                 delay: function(el, i) { return i * 250 },
-                direction: 'alternate', 
             });
-            
         },
-
+        scrollListener() {
+                const elements = document.querySelectorAll('.word-cont');
+                window.addEventListener('scroll', () => {
+                elements.forEach((element) => {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.bottom <= window.innerHeight) {
+                        window.removeEventListener('scroll', this.checkIfElementVisible);
+                        if(this.animate === false) {
+                            this.animate = true;
+                            document.querySelector('#path').classList.remove('hide-stroke');
+                            this.AnimatePath();
+                        }
+                    }
+                });
+                });       
+        },
     },
     mounted() {
-        this.AnimatePath()
+            this.scrollListener()
     }
 }
 </script>
@@ -167,17 +182,19 @@ export default{
         position: relative;
         justify-content: center;
         svg{
-            margin-top: 10rem;
             height: 30rem;
             stroke: var(--light);
             opacity: 0.05;
+            .hide-stroke {
+                opacity: 0 !important;
+            }
         }
         .word-cont{
             position: absolute;
             font-family: 'rubik';
             font-weight: bolder;
             font-size: 10rem;
-            top: 45%;
+            top: 28%;
             color: var(--green1);
         }
 
