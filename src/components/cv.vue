@@ -40,7 +40,6 @@ export default{
             fetch('https://cvdownload-4fef.restdb.io/rest/cvdownload', options)
                 .then(response => response.json())
                 .then(body => {
-                    console.log(body[0].counter)
                 this.counter = body[0].counter
                 })
                 .catch(error => {
@@ -49,34 +48,32 @@ export default{
             });
         },
         updateDataBaseCounter() {
-            const url = 'https://cvdownload-4fef.restdb.io/rest/cvdownload/64bd506e86d8c5a6daed91d5';
-            var value = this.counter
-            const data = { counter: value };
-
-            var options = { 
-                method: 'PUT',
-                url: 'https://cvdownload-4fef.restdb.io/rest/cvdownload/',
-                headers: 
-                { 'cache-control': 'no-cache',
-                    'x-apikey': '7e0492df4013aab19d4afb683a52c1efd94c5',
-                    'content-type': 'application/json' },
-                body: { counter: this.counter },
-                json: true 
+            const objectId = "64b6b3700c10e2790004c74b";
+            const url = `https://cvdownload-4fef.restdb.io/rest/cvdownload/${objectId}`;
+            const data = {
+                counter: this.counter
             };
-            
-            
-            axios.put(url, data, {
+            const options = {
+                method: 'PUT',
+                url: url,
                 headers: {
-                'x-apikey': '64bd506e86d8c5a6daed91d5',
-                'content-type': 'application/json',
-            },
-            })
-            .catch(error => {
-                console.error('Error while requesting Database:', error);
-                // Handle errors here
-            });
+                    'cache-control': 'no-cache',
+                    'x-apikey': '64bd506e86d8c5a6daed91d5',
+                    'content-type': 'application/json'
+                },
+                data: data
+            };
+
+            axios(options)
+                .then(response => {
+                    console.log("Zaktualizowano wartość counter:", response.data);
+                })
+                .catch(error => {
+                    console.error("Błąd podczas aktualizacji:", error);
+                });
         }
     },
+    
     mounted() {
         this.initialFetchOfCounter()
         emitter.on("updateCounter", () =>{

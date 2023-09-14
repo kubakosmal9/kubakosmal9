@@ -1,5 +1,5 @@
 <template>
-    <a href="https://drive.google.com/uc?export=download&id=1RtOTS6uI5YSACtSp_J_b4KFGBeuuwA_I" download @mouseenter="this.animateArrowEnter()" @mouseleave="this.animateArrowLeave()" @click="this.downloadCV()" class="cont">
+    <a  download @mouseenter="this.animateArrowEnter()" @mouseleave="this.animateArrowLeave()" @click="this.downloadCV()" class="cont">
         <svg height="32" viewBox="0 -960 960 960" width="48" xmlns="http://www.w3.org/2000/svg">
             <path id="ok" opacity="0" d="M378-246 154-470l43-43 181 181 384-384 43 43-427 427Z" class="svg-ok"/>
             <path id="arrow" d="M 287 -506 L 330 -549 L 450 -429 L 450 -800 L 510 -800 L 510 -429 L 630 -549 L 673 -506 L 480 -313 L 287 -506 Z" style=""/>
@@ -22,15 +22,11 @@ export default{
             this.block = true
         }
         emitter.on("blockUpdating", () =>{
-            console.log("blockUpdating")
             this.block = true
             localStorage.setItem("BlockUpdating", true);
         });
     },
     methods: {
-        showDownloadCount(){
-
-        },
         animateArrowEnter(){
             if(this.aniamtionBLocker === false){
                 anime({
@@ -73,7 +69,6 @@ export default{
         },
         downloadCV() {   
             this.$gtag.event('CV');
-            this.showDownloadCount()
             this.animateDownloadArrow()
             if(this.block === false) {
                 emitter.emit("updateCounter");
