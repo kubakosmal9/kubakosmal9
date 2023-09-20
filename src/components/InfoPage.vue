@@ -46,7 +46,7 @@ export default {
     font-family: 'Rubik';
     background-color: var(--backgroundColor);
     justify-content: space-evenly;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
     margin-top: 1rem;
     #left, #midlle, #right{

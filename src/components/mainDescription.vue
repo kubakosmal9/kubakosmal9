@@ -29,6 +29,7 @@ export default{
     .wrapper p{
         font-size: 1.2rem;
         margin: 0;
+        margin-top: 1rem;
     }
 
 }

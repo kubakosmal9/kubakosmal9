@@ -143,7 +143,6 @@ export default{
     },
     methods: {
         AnimatePath() {
-            console.log("Animuje się kurwa");
             anime({
                 targets: '#path',
                 strokeDashoffset: [anime.setDashoffset, 0],
