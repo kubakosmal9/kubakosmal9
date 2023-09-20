@@ -27,6 +27,8 @@ export default{
 .wrapper{
     min-width: 35rem;
     color: var(--light);
+    background-image: none !important;
+
     display: flex;
     justify-content: center;
     align-items: center;

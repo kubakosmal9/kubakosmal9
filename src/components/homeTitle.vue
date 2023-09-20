@@ -1,5 +1,6 @@
 <template>
     <div class="wrapper">
+      <div class="background-gradient"></div>
       <p class="name">Jakub Kosmal</p>
       <p class="subtitle">- Network Engineer -</p>
       <photo></photo>
@@ -89,6 +90,13 @@ methods: {
     position: relative;
     align-items: center;
     flex-direction: column;
+    .background-gradient{
+      background: linear-gradient(to bottom, transparent, var(--backgroundLighter));
+      position: absolute;
+      height: 20%;
+      bottom: 0;
+      width: 100%;
+        }
 
     .wrapper::before {
     content: "";
@@ -99,9 +107,9 @@ methods: {
     height: 100%;
     opacity: 0.1; /* Adjust the opacity value as needed */
     background-image: url(../assets/img/codingBack.jpg);
-    background-repeat: none;
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position: bottom;
+    background-position: top;
   }
     .name {
       top: 9rem;

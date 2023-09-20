@@ -108,9 +108,10 @@ export default{
 
 <style lang="scss" scoped>
 .wrapper{
-    background-color: var(--backgroundColor);
     min-width: 100%;
     display: flex;
+    background-image: none !important;
+
     flex-direction: column;
     justify-content: center;
     .cv-panel{

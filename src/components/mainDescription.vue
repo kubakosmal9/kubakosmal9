@@ -19,6 +19,8 @@ export default{
     max-width: 35rem;
     display: flex;
     color: var(--light);
+    background-image: none !important;
+
     flex-direction: column;
     display: inline;
     .wrapper h1{

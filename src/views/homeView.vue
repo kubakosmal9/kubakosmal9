@@ -2,7 +2,8 @@
   import homeTitle from '../components/homeTitle.vue';
   import infoPage from '../components/infoPage.vue';
   import socialButtons from '../components/socialButtons.vue';
-  import resumeTtile from '../components/resumetitle.vue'
+  import resumeTtile from '../components/resumetitle.vue';
+  import resumeTimeline from '../components/resumeTimeline.vue'
 </script>
 
 <template>
@@ -19,6 +20,7 @@
   </section>
   <section class="resume" id="resume">
     <resumeTtile></resumeTtile>
+    <resumeTimeline></resumeTimeline>
   </section>
 </div>
 
@@ -96,5 +98,8 @@ export default{
 .info-cont{
   position: relative;
   width: 100%;
+}
+.resume{
+  background-color: var(--backgroundColor);
 }
 </style>
