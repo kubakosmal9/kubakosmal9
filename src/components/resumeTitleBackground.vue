@@ -221,7 +221,7 @@ export default {
     const l2 = document.getElementById('l2');
 
     const options = {
-      threshold: 0.9,
+      threshold: 0.7,
     };
 
     const observer = new IntersectionObserver(entries => {
@@ -259,12 +259,11 @@ export default {
     animateElements(progress, l1, l2) {
         const translateYL1 = -this.scrollY * 0.05 * progress + 100;
         const translateYL2 = -this.scrollY * 0.03 * progress + 100;
-      console.log(translateYL1)
-      const scaleL1 = 1 + progress * 0.02;
-      const scaleL2 = 1 + progress * 0.01;
+        const scaleL1 = 1 + progress * 0.02;
+        const scaleL2 = 1 + progress * 0.01;
 
-      l1.style.transform = `translateY(${translateYL1}px) scale(${scaleL1})`;
-      l2.style.transform = `translateY(${translateYL2}px) scale(${scaleL2})`;
+        l1.style.transform = `translateY(${translateYL1}px) scale(${scaleL1})`;
+        l2.style.transform = `translateY(${translateYL2}px) scale(${scaleL2})`;
     },
   },
 };
@@ -300,7 +299,7 @@ export default {
         .l3{
             transform: translateY(50px);
             z-index: 999;
-            filter: blur(1px); 
+
         }
     }
 }

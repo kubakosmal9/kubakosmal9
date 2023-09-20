@@ -193,8 +193,8 @@ export default{
         justify-content: center;
         svg{
             height: 30rem;
-            opacity: 0.2;
-            filter: blur(1px); 
+            opacity: 0.1;
+            filter: blur(1px);
             z-index: 100;
             stroke: var(--light);
             .hide-stroke {
