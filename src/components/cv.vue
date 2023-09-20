@@ -118,6 +118,7 @@ export default{
         background-color: var(--green1);
         width: 23rem;
         color: var(--light);
+        box-shadow: 3px 2px 10px var(--backgroundLighter);
         display: flex;
         margin-top: 1rem;
         position: relative;

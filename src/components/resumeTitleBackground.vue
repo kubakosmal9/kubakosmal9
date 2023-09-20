@@ -1,7 +1,7 @@
 <template>
 <div class="wrapper-inter">
-    <div class="background">
-        <div class="l1">
+    <div id="background" class="background">
+        <div id="l1" class="l1">
             <svg  fill=var(--green1) stroke-width="0" viewBox="0 190 1500 300">
                 <path d="M 0.00,372.00
                 C 0.00,372.00 24.00,365.73 24.00,365.73
@@ -65,7 +65,7 @@
                     Z" />
             </svg>            
         </div>
-        <div class="l2">
+        <div id="l2" class="l2">
             <svg fill=var(--backgroundLighter) stroke-width="0" viewBox="0 190 1500 300">
                 <path d="M 0.00,373.00
                         C 9.60,371.70 11.72,369.95 20.00,367.75
@@ -122,7 +122,7 @@
                             1440.00,326.14 1481.00,331.00 1481.00,331.00
                             1481.00,331.00 1489.00,331.00 1489.00,331.00
                             1503.47,330.98 1517.16,324.68 1531.00,321.00
-                            1531.00,321.00 1531.00,489.00 1531.00,500.00 
+                            1531.00,321.00 1531.00,489.00 1531.00,550.00 
                             L 0.00,500.00
                             Z" />
                 </svg>
@@ -207,15 +207,73 @@
 </div>
 </template>
 
+
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      scrollY: 0,
+    };
+  },
+  mounted() {
+    const background = document.getElementById('background');
+    const l1 = document.getElementById('l1');
+    const l2 = document.getElementById('l2');
+
+    const options = {
+      threshold: 0.9,
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      const animationProgress = entries[0].intersectionRatio;
+      this.animateElements(animationProgress, l1, l2);
+    }, options);
+
+    observer.observe(background);
+
+    // Listen for scroll events
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeDestroy() {
+    // Remove event listener when component is destroyed
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      // Use requestAnimationFrame to schedule updates
+      requestAnimationFrame(() => {
+        this.scrollY = window.scrollY;
+        const background = document.getElementById('background');
+        const animationProgress = this.calculateAnimationProgress(background);
+        this.animateElements(animationProgress, l1, l2);
+      });
+    },
+    calculateAnimationProgress(element) {
+      // Calculate the element's visibility in the viewport
+      const viewportHeight = window.innerHeight;
+      const rect = element.getBoundingClientRect();
+      const offsetY = rect.top;
+
+      return Math.max(0, Math.min(1, (viewportHeight - offsetY) / viewportHeight));
+    },
+    animateElements(progress, l1, l2) {
+        const translateYL1 = -this.scrollY * 0.05 * progress + 100;
+        const translateYL2 = -this.scrollY * 0.03 * progress + 100;
+      console.log(translateYL1)
+      const scaleL1 = 1 + progress * 0.02;
+      const scaleL2 = 1 + progress * 0.01;
+
+      l1.style.transform = `translateY(${translateYL1}px) scale(${scaleL1})`;
+      l2.style.transform = `translateY(${translateYL2}px) scale(${scaleL2})`;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 .wrapper-inter{
     width: 100%;
     overflow: hidden;
-    
     height: 34rem;
     position: absolute;
     .background{
@@ -235,8 +293,9 @@ export default {}
             filter: blur(3px); 
         }
         .l2{
-            transform: translateY(120px);
+            transform: translateY(110px);
             filter: blur(2px); 
+            top: 30px;
         }
         .l3{
             transform: translateY(50px);
