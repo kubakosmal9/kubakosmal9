@@ -3,7 +3,6 @@
   import infoPage from '../components/infoPage.vue';
   import socialButtons from '../components/socialButtons.vue';
   import resumeTtile from '../components/resumetitle.vue';
-  import resumeTimeline from '../components/resumeTimeline.vue'
 </script>
 
 <template>
@@ -20,7 +19,6 @@
   </section>
   <section class="resume" id="resume">
     <resumeTtile></resumeTtile>
-    <resumeTimeline></resumeTimeline>
   </section>
 </div>
 

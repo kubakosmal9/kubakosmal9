@@ -1,8 +1,14 @@
 <template>
     <div  class="resume-title-cont">
-        <svg xmlns="http://www.w3.org/2000/svg"
+        <resumeTitleBackground></resumeTitleBackground>
+        <div class="word-cont">
+            <span  v-for="(letter, index) in letters" :key="index" ref="letters">
+                    {{ letter }}
+            </span>
+        </div>
+        <svg  xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1000 500">
-            <path class="svg hide-stroke" id="path" fill="none"  stroke-width="3"
+            <path class="svg hide-stroke" id="path" fill="none" stroke-width="3"
                 d="M 111.55,86.00
                 C 111.55,86.00 148.94,86.00 148.94,86.00
                     173.86,86.00 190.74,86.96 199.56,88.88
@@ -125,16 +131,19 @@
                     906.14,289.00 814.55,289.00 814.55,289.00
                     814.55,289.00 814.55,86.00 814.55,86.00 Z" />
         </svg>
-        <div class="word-cont">
-            <span v-for="(letter, index) in letters" :key="index" ref="letters">
-                    {{ letter }}
-            </span>
-        </div>
+
+
+        
     </div>
+    
 </template>
 <script>
+  import resumeTitleBackground from './resumeTitleBackground.vue'
 import anime from 'animejs';
 export default{
+    components:{
+        resumeTitleBackground
+    },
     data() {
         return {
         letters: ["R", "E", "S", "U", "M", "E"],
@@ -176,14 +185,18 @@ export default{
 <style lang="scss" scoped>
     .resume-title-cont{
         width: 100%;
+        height: 34rem;
         display: flex;
         align-items: center;
+        overflow: hidden;
         position: relative;
         justify-content: center;
         svg{
             height: 30rem;
+            opacity: 0.2;
+            filter: blur(1px); 
+            z-index: 100;
             stroke: var(--light);
-            opacity: 0.05;
             .hide-stroke {
                 opacity: 0 !important;
             }
@@ -191,11 +204,13 @@ export default{
         .word-cont{
             position: absolute;
             font-family: 'rubik';
+            text-shadow: 3px 2px 8px var(--backgroundLighter);
             font-weight: bolder;
+            z-index: 999;
             font-size: 10rem;
-            top: 28%;
-            color: var(--green1);
+            top: 27%;
+            opacity: 1;
+            color: var(--green2);
         }
-
     }
 </style>
