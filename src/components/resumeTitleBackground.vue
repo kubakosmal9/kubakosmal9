@@ -130,7 +130,7 @@
         <div class="l3">
             <svg class="over-text" stroke-width="0" viewBox="120 190 1400 400" fill=var(--green2)>
             <path  d="M 117.61,483.21
-                        117.59,480.00 123.64,479.25 126.00,478.57
+                        C 117.59,480.00 123.64,479.25 126.00,478.57
                         126.00,478.57 153.00,468.86 153.00,468.86
                         153.00,468.86 166.00,464.48 166.00,464.48
                         166.00,464.48 219.00,454.92 219.00,454.92
@@ -289,11 +289,11 @@ export default {
         }
         .l1{
             opacity: 0.8;
-            filter: blur(3px); 
+            filter: blur(5px); 
         }
         .l2{
             transform: translateY(110px);
-            filter: blur(2px); 
+            filter: blur(3px); 
             top: 30px;
         }
         .l3{

@@ -194,7 +194,7 @@ export default{
         svg{
             height: 30rem;
             opacity: 0.1;
-            filter: blur(1px);
+            filter: blur(px);
             z-index: 100;
             stroke: var(--light);
             .hide-stroke {
