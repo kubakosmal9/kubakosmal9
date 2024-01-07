@@ -44,13 +44,14 @@ export default {
 .wrapper{
     display: flex;
     font-family: 'Rubik';
-    background-color: var(--backgroundColor);
+    background-image: linear-gradient(to top, var(--backgroundColor), var(--backgroundLighter));
     justify-content: space-evenly;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
-    margin-top: 1rem;
+    padding-top: 1rem;
     #left, #midlle, #right{
         transform: translateY(150px);
+        background-image: none;
     }
 }
 </style>

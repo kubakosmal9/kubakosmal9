@@ -1,5 +1,6 @@
 <template>
 <div class="social-cont">
+    <div class="background"></div>
     <a id="icon" href="https://pl-pl.facebook.com/people/Jakub-Kosmal/pfbid0mkDxyYwy9iZqjsmeJrC62DCivX7FcgzwZrGnHFxk72RpWRRXnQrjKSxemv35Aw2gl/"> 
         <div class="icon">
             <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#d8f3dc" viewBox="0 0 16 16">
@@ -36,19 +37,29 @@ export default{}
     width: 100%;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    height: 2rem;
+    height: 5rem;
     display: flex;
     position: relative;
     justify-content: center;
-    transform-origin: center;
     gap: 8rem;
+    .background{
+        position: absolute;
+        background: linear-gradient(to bottom, var(--backgroundColor), var(--backgroundcolor));
+        width: 100%;
+        height: 290%;
+        z-index: 0;
+    }
     .icon{
         transform-origin: center;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     svg{
         transition: all 0.2s ease-in-out;
         position: absolute;
-        transform-origin: center;
         padding: 2px;
     }
     .icon:hover .svg{

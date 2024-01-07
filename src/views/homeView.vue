@@ -1,7 +1,12 @@
 <script setup>
   import homeTitle from '../components/homeTitle.vue';
-  import infoPage from '../components/InfoPage.vue';
-  import socialButtons from '../components/socialButtons.vue'
+  import infoPage from '../components/infoPage.vue';
+  import socialButtons from '../components/socialButtons.vue';
+  import resumeTtile from '../components/resumetitle.vue';
+  import contactForm from '../components/contactForm.vue';
+  import resumeTimeline from '../components/resumeTimeline.vue';
+  import resumeTimelineEducation from '../components/resumeTimelineEducation.vue';
+
 </script>
 
 <template>
@@ -15,6 +20,14 @@
   </section>
   <section class="socials" id="socials">
     <socialButtons></socialButtons>
+  </section>
+  <section class="resume" id="resume">
+    <resumeTtile></resumeTtile>
+    <resumeTimeline></resumeTimeline>
+    <resumeTimelineEducation></resumeTimelineEducation>
+  </section>
+  <section class="contant-form" id="contact-form">
+    <contactForm></contactForm>
   </section>
 </div>
 
@@ -92,5 +105,11 @@ export default{
 .info-cont{
   position: relative;
   width: 100%;
+}
+.resume{
+  background-color: var(--backgroundColor);
+}
+.contact-form{
+  background-color: var(--green1) !important;
 }
 </style>

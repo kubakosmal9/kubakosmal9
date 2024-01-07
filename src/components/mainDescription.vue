@@ -19,6 +19,8 @@ export default{
     max-width: 35rem;
     display: flex;
     color: var(--light);
+    background-image: none !important;
+
     flex-direction: column;
     display: inline;
     .wrapper h1{
@@ -29,6 +31,7 @@ export default{
     .wrapper p{
         font-size: 1.2rem;
         margin: 0;
+        margin-top: 1rem;
     }
 
 }

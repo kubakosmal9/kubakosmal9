@@ -10,11 +10,13 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@customgform-lib/react-customgform": "^1.0.12",
     "animejs": "^3.2.1",
     "axios": "^1.4.0",
     "mitt": "^3.0.1",
     "sass": "^1.63.4",
     "vue": "^3.3.4",
+    "vue-collapsed": "^1.3.0",
     "vue-gtag": "^2.0.1",
     "vue-router": "^4.2.2"
   },
