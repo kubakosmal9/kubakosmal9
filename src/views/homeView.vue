@@ -2,7 +2,7 @@
   import homeTitle from '../components/homeTitle.vue';
   import infoPage from '../components/InfoPage.vue';
   import socialButtons from '../components/socialButtons.vue';
-  import resumeTtile from '../components/resumetitle.vue';
+  import resumeTtile from '../components/resumeTitle.vue';
   import contactForm from '../components/contactForm.vue';
   import resumeTimeline from '../components/resumeTimeline.vue';
   import resumeTimelineEducation from '../components/resumeTimelineEducation.vue';
