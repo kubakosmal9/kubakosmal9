@@ -9,12 +9,16 @@ const router = createRouter({
       component: homeView
     },
     {
-      path: '/socials',
-      redirect: '/#socials'
-    },
-    {
       path: '/about',
       redirect: '/#about'
+    },
+    {
+      path: '/resume',
+      redirect: '/#resume'
+    },
+    {
+      path: '/socials',
+      redirect: '/#socials'
     },
   ],
 })
