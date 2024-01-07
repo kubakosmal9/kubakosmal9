@@ -4,6 +4,7 @@
   import socialButtons from '../components/socialButtons.vue';
   import resumeTtile from '../components/resumetitle.vue';
   import resumeTimeline from '../components/resumeTimeline.vue';
+  import resumeTimelineEducation from '../components/resumeTimelineEducation.vue';
 </script>
 
 <template>
@@ -21,6 +22,7 @@
   <section class="resume" id="resume">
     <resumeTtile></resumeTtile>
     <resumeTimeline></resumeTimeline>
+    <resumeTimelineEducation></resumeTimelineEducation>
   </section>
 </div>
 

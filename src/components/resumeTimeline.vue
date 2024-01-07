@@ -85,7 +85,7 @@ export default{
 <style lang="scss" scoped>
 .wrapper{
   
-    padding-bottom: 10rem;
+    padding-bottom: 2rem;
     background-image: linear-gradient(to bottom, var(--green2), var(--green1), var(--backgroundLighter));
     width: 100%;
     padding-top: 2rem;
@@ -103,6 +103,7 @@ export default{
         position: relative;
         padding-bottom: 4rem;
         overflow: hidden;
+        box-shadow: var(--backgroundLighter) 0.1rem 0.1rem 1rem;
         .main-title{
           font-family: "QuickSand";
           color: var(--light);
@@ -110,7 +111,7 @@ export default{
           text-align: center;
           margin-top: 1rem;
           font-size: 3rem;
-          opacity: 0.7;
+
         }
         .expanded{
           max-height: auto;
