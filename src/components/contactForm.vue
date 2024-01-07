@@ -3,7 +3,7 @@
     <div class="wrapper">
         <div class="title">Contact Form</div>
         <div class="form">
-            <span class="text">If you want to contact me leave your email address below</span>
+            <span class="text">If you want Me to contact You. Leave your email address below</span>
             <div data-customgform="clr2vdaqe002ywnitqvhwwggx"></div>
             </div>
 
