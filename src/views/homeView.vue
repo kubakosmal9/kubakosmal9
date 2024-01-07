@@ -6,6 +6,7 @@
   import contactForm from '../components/contactForm.vue';
   import resumeTimeline from '../components/resumeTimeline.vue';
   import resumeTimelineEducation from '../components/resumeTimelineEducation.vue';
+
 </script>
 
 <template>

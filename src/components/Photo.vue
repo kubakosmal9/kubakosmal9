@@ -85,6 +85,7 @@ export default{
 .photo-wrapper{
     width: 20rem;
     height: 30rem;
+    align-items: flex-start;
     display: flex;
     position: relative;
     bottom: 0;
@@ -102,6 +103,7 @@ export default{
         height: 100%;
         .dot {
         width: 1rem;
+        
         position: absolute;
         top: 100%;
         left: 50%;
@@ -143,8 +145,8 @@ export default{
     }
     }
     .photo{
-        align-self:center;
         opacity: 0;
+        transform: translateY(-10rem);
         width: 20rem;
         height: 20rem;
         box-sizing: border-box;
