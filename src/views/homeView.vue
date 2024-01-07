@@ -3,6 +3,7 @@
   import infoPage from '../components/infoPage.vue';
   import socialButtons from '../components/socialButtons.vue';
   import resumeTtile from '../components/resumetitle.vue';
+  import contactForm from '../components/contactForm.vue';
   import resumeTimeline from '../components/resumeTimeline.vue';
   import resumeTimelineEducation from '../components/resumeTimelineEducation.vue';
 </script>
@@ -23,6 +24,9 @@
     <resumeTtile></resumeTtile>
     <resumeTimeline></resumeTimeline>
     <resumeTimelineEducation></resumeTimelineEducation>
+  </section>
+  <section class="contant-form" id="contact-form">
+    <contactForm></contactForm>
   </section>
 </div>
 
@@ -103,5 +107,8 @@ export default{
 }
 .resume{
   background-color: var(--backgroundColor);
+}
+.contact-form{
+  background-color: var(--green1) !important;
 }
 </style>

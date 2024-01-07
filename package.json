@@ -10,6 +10,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@customgform-lib/react-customgform": "^1.0.12",
     "animejs": "^3.2.1",
     "axios": "^1.4.0",
     "mitt": "^3.0.1",

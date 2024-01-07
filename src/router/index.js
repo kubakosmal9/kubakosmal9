@@ -20,6 +20,10 @@ const router = createRouter({
       path: '/socials',
       redirect: '/#socials'
     },
+    {
+      path: '/contact-form',
+      redirect: '/#contact-form'
+    },
   ],
 })
 

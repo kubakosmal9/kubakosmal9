@@ -1,6 +1,10 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import './assets/var.css'
+let Script = document.createElement('script')
+      Script.setAttribute('src', 'https://cdn.customgform.com/cgf.js')
+      document.head.appendChild(Script)
+
 </script>
 
 <template>
